@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+    <title>Corona Tracker</title>
+
+    <style>
+      .container
+      {
+        width: 700px;
+        height: 300px;
+        border: 1px solid #c3c3c3;
+        display: flex;
+        flex-wrap: wrap;
+        align-content: center;
+      }
+
+      .dropdown-content
+      {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        padding: 12px 16px;
+        z-index: 1;
+      }
+
+      .dropdown:hover .dropdown-content
+      {
+        display: block;
+      }
+
+    </style>
+
+  </head>
+  <body>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+
+      </div>
+      <div class="container my-4">
+
+      <form action="result" method="post">
+      {% csrf_token %}
+      <label for="country_list">Choose a country:</label>
+        <select name="country" id="country">
+        <option>Choose a country</option>
+        {%for items in list%}
+        <option>{{items}}</option>
+        {% endfor %}
+      </select>
+        <br>
+        <br>
+        <label for = "choices">Choose a status</label>
+        <select name = "choices" id = "choices">
+          <option>Choose the status</option>
+          <option>active</option>
+          <option>deaths</option>
+          <option>recovered</option>
+          <option>confirmed</option>
+        </select>
+        <br><br>
+        <input type="submit" value="Submit">
+      </form>
+    </div>
+
+
+
+  </body>
+</html>
